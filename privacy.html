@@ -7,223 +7,198 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #f5f5f7;
-      --card: #ffffff;
-      --accent: #7c3aed;
-      --accent-light: #ede9fe;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --border: #e5e5ea;
-    }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #fff;
+      color: #111;
       line-height: 1.6;
     }
 
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-      color: white;
-      padding: 72px 24px 60px;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 80px 24px 72px;
       text-align: center;
     }
 
-    .shield { font-size: 2.8rem; margin-bottom: 18px; }
-
     .hero h1 {
-      font-size: clamp(2rem, 6vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
     }
 
-    .hero .sub {
-      color: rgba(255,255,255,0.55);
-      font-size: 0.85rem;
-      letter-spacing: 0.02em;
+    .hero p {
+      font-size: 0.875rem;
+      color: #555;
     }
 
     /* Content */
     .content {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 56px 24px;
+      padding: 72px 24px;
     }
 
-    /* Summary banner */
-    .summary {
-      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-      border: 1px solid #c4b5fd;
-      border-radius: 18px;
-      padding: 36px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .summary h2 {
-      font-size: 1.15rem;
+    /* Lead */
+    .lead {
+      font-size: 1.25rem;
       font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+      border-left: 3px solid #111;
+      padding-left: 20px;
+      margin-bottom: 56px;
+      line-height: 1.5;
     }
 
-    .summary p {
-      color: #4c1d95;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    /* Policy rows */
-    .policy-section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    /* Sections */
+    .policy-row {
       display: flex;
       gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid #ebebeb;
       align-items: flex-start;
     }
 
-    .policy-icon {
-      font-size: 1.5rem;
-      min-width: 36px;
-      text-align: center;
-      margin-top: 2px;
-    }
+    .policy-row:first-of-type { border-top: 1px solid #ebebeb; }
 
-    .policy-section h3 {
-      font-size: 0.95rem;
+    .policy-icon { font-size: 1.2rem; min-width: 28px; margin-top: 1px; }
+
+    .policy-row h3 {
+      font-size: 0.9rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    .policy-section p {
+    .policy-row p {
       font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.75;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* Updated */
+    .updated {
+      font-size: 0.78rem;
+      color: #aaa;
+      margin-top: 48px;
     }
 
     /* Contact */
     .contact {
-      margin-top: 48px;
-      text-align: center;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid #ebebeb;
+    }
+
+    .contact h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
     }
 
     .contact p {
-      color: var(--muted);
       font-size: 0.875rem;
+      color: #555;
       margin-bottom: 18px;
     }
 
     .email-btn {
       display: inline-block;
-      background: var(--accent);
-      color: white;
+      background: #111;
+      color: #fff;
       font-weight: 700;
       font-size: 0.875rem;
-      padding: 13px 30px;
+      padding: 12px 26px;
       border-radius: 50px;
       text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    .email-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(124,58,237,0.35);
     }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 24px;
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
+      border-top: 1px solid #ebebeb;
+      padding: 28px 24px;
+      font-size: 0.8rem;
+      color: #aaa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 680px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 10px; flex-wrap: wrap; }
+    footer a { color: #aaa; text-decoration: none; }
+    footer a:hover { color: #111; }
+    .footer-links { display: flex; gap: 20px; }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <div class="shield">&#x1F6E1;&#xFE0F;</div>
     <h1>Privacy Policy</h1>
-    <p class="sub">Hook It &nbsp;&mdash;&nbsp; Last updated May 8, 2025</p>
+    <p>Hook It &nbsp;&middot;&nbsp; Last updated May 8, 2025</p>
   </header>
 
   <main class="content">
 
-    <div class="summary">
-      <h2>The short version</h2>
-      <p>Hook It collects absolutely no personal data. No accounts, no tracking, no analytics, no ads. Everything stays on your device.</p>
-    </div>
+    <p class="lead">Hook It collects no personal data. Nothing leaves your device.</p>
 
-    <div class="policy-section">
+    <div class="policy-row">
       <div class="policy-icon">&#x1F6AB;</div>
       <div>
-        <h3>No Data Collection</h3>
-        <p>Hook It does not collect, store, or transmit any personal information. There are no user accounts, no login screens, and no identifiers of any kind sent off your device.</p>
+        <h3>No data collection</h3>
+        <p>The app collects no personal information. There are no accounts, no identifiers, and nothing transmitted off your device.</p>
       </div>
     </div>
 
-    <div class="policy-section">
+    <div class="policy-row">
       <div class="policy-icon">&#x1F4F1;</div>
       <div>
-        <h3>Local Storage Only</h3>
-        <p>The app saves your game progress and preferences — including your current puzzle state, move count, sound setting, and tutorial status — locally on your device using Unity PlayerPrefs. This data never leaves your device and is not accessible to anyone else.</p>
+        <h3>Local storage only</h3>
+        <p>Game progress and settings (puzzle state, move count, sound preference, tutorial status) are saved locally using Unity PlayerPrefs. This data stays on your device.</p>
       </div>
     </div>
 
-    <div class="policy-section">
+    <div class="policy-row">
       <div class="policy-icon">&#x1F91D;</div>
       <div>
-        <h3>No Third Parties</h3>
-        <p>Hook It does not integrate with any third-party services, SDKs, advertising networks, or analytics platforms. There are no trackers of any kind embedded in the app.</p>
+        <h3>No third parties</h3>
+        <p>No analytics, no ad SDKs, no third-party services of any kind are integrated into the app.</p>
       </div>
     </div>
 
-    <div class="policy-section">
-      <div class="policy-icon">&#x1F4F5;</div>
-      <div>
-        <h3>No Ads</h3>
-        <p>Hook It contains no advertisements and no ad SDKs. You will never see a banner, interstitial, or rewarded ad.</p>
-      </div>
-    </div>
-
-    <div class="policy-section">
+    <div class="policy-row">
       <div class="policy-icon">&#x1F9D2;</div>
       <div>
-        <h3>Safe for All Ages</h3>
-        <p>Because no data is collected under any circumstances, Hook It is appropriate for users of all ages, including children.</p>
+        <h3>Safe for all ages</h3>
+        <p>No data is collected under any circumstances, making Hook It appropriate for users of all ages.</p>
       </div>
     </div>
 
-    <div class="policy-section">
+    <div class="policy-row">
       <div class="policy-icon">&#x1F4DD;</div>
       <div>
-        <h3>Policy Changes</h3>
-        <p>If this policy ever changes, the updated version will be posted at this URL with a new effective date. Given the nature of the app, significant changes are unlikely.</p>
+        <h3>Policy changes</h3>
+        <p>Any updates will be posted here with a new date. Significant changes are unlikely given how the app works.</p>
       </div>
     </div>
 
+    <p class="updated">Effective May 8, 2025</p>
+
     <div class="contact">
-      <p>Questions about this privacy policy? Get in touch.</p>
+      <h2>Questions?</h2>
+      <p>Reach out directly.</p>
       <a class="email-btn" href="mailto:jwang44@ucsb.edu">jwang44@ucsb.edu</a>
     </div>
 
   </main>
 
   <footer>
-    <div>&copy; 2025 Jeffrey Wang &mdash; Hook It</div>
+    <span>&copy; 2025 Jeffrey Wang</span>
     <div class="footer-links">
       <a href="index.html">Support</a>
       <a href="mailto:jwang44@ucsb.edu">Contact</a>

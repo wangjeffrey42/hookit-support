@@ -7,200 +7,155 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #f5f5f7;
-      --card: #ffffff;
-      --accent: #7c3aed;
-      --accent-light: #ede9fe;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --border: #e5e5ea;
-    }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #fff;
+      color: #111;
       line-height: 1.6;
     }
 
+    a { color: #111; }
+
     /* Hero */
     .hero {
-      background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-      color: white;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 80px 24px 72px;
       text-align: center;
-      padding: 80px 24px 60px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 20px;
-      padding: 6px 16px;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #fff 0%, #c4b5fd 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      font-size: clamp(3.5rem, 10vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 18px;
     }
 
     .hero p {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.65);
-      max-width: 460px;
-      margin: 0 auto 40px;
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 40px;
     }
 
     .grid-demo {
       display: inline-grid;
-      grid-template-columns: repeat(3, 60px);
-      gap: 6px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 16px;
+      grid-template-columns: repeat(3, 52px);
+      gap: 5px;
     }
 
     .cell {
-      width: 60px;
-      height: 60px;
-      border-radius: 10px;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      background: #1f1f1f;
+      border: 1px solid #2e2e2e;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      font-weight: 700;
-      background: rgba(124,58,237,0.35);
-      border: 1px solid rgba(196,181,253,0.4);
-      color: white;
     }
 
-    /* Content */
+    /* Layout */
     .content {
-      max-width: 800px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 64px 24px;
+      padding: 72px 24px;
     }
 
-    .section { margin-bottom: 64px; }
+    .section { margin-bottom: 72px; }
 
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 600;
+    .label {
+      font-size: 0.7rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #999;
       margin-bottom: 10px;
     }
 
-    .section > h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 24px;
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
     }
 
     /* Steps */
-    .steps { display: flex; flex-direction: column; gap: 10px; }
+    .steps { display: flex; flex-direction: column; gap: 2px; }
 
     .step {
       display: flex;
       gap: 20px;
       align-items: flex-start;
-      background: var(--card);
-      border-radius: 16px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 22px 0;
+      border-bottom: 1px solid #ebebeb;
     }
+
+    .step:first-child { border-top: 1px solid #ebebeb; }
 
     .step-num {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      border-radius: 10px;
-      background: var(--accent-light);
-      color: var(--accent);
+      font-size: 0.75rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: #bbb;
+      min-width: 20px;
+      padding-top: 3px;
     }
 
-    .step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; }
-    .step p { font-size: 0.875rem; color: var(--muted); }
+    .step h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      font-size: 0.875rem;
+      color: #555;
+    }
 
     /* Modes */
     .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 540px) { .modes { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .modes { grid-template-columns: 1fr; } }
 
     .mode-card {
-      background: var(--card);
-      border-radius: 16px;
+      background: #f8f8f8;
+      border-radius: 14px;
       padding: 28px;
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
-    .tag {
+    .mode-tag {
       display: inline-block;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
+      padding: 3px 9px;
+      border-radius: 4px;
       margin-bottom: 14px;
     }
 
-    .tag-standard { background: #dcfce7; color: #15803d; }
-    .tag-constrained { background: #fee2e2; color: #b91c1c; }
+    .tag-std { background: #e8f5e9; color: #2e7d32; }
+    .tag-con { background: #fdecea; color: #c62828; }
 
-    .mode-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .mode-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-    .mode-card p { font-size: 0.875rem; color: var(--muted); }
-
-    /* Card */
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 32px;
-      border: 1px solid var(--border);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.75;
+    .mode-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
     }
 
-    .card p + p { margin-top: 14px; }
-    .card strong { color: var(--text); }
-    .card a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .mode-card p { font-size: 0.875rem; color: #555; }
 
     /* FAQ */
-    .faq { display: flex; flex-direction: column; gap: 4px; }
+    .faq { border-top: 1px solid #ebebeb; }
 
-    details.faq-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
+    details.faq-item { border-bottom: 1px solid #ebebeb; }
 
     details.faq-item summary {
-      padding: 18px 22px;
-      font-weight: 600;
+      padding: 18px 0;
+      font-weight: 700;
       font-size: 0.9rem;
       cursor: pointer;
       list-style: none;
@@ -211,75 +166,70 @@
     }
 
     details.faq-item summary::-webkit-details-marker { display: none; }
-    details.faq-item summary::after { content: "+"; font-size: 1.2rem; color: var(--accent); font-weight: 400; }
+    details.faq-item summary::after { content: "+"; color: #bbb; font-weight: 400; font-size: 1.1rem; }
     details.faq-item[open] summary::after { content: "−"; }
 
     .faq-body {
-      padding: 0 22px 18px;
+      padding-bottom: 18px;
       font-size: 0.875rem;
-      color: var(--muted);
+      color: #555;
       line-height: 1.75;
     }
 
     /* Contact */
-    .contact-card {
-      background: linear-gradient(135deg, #0f0c29 0%, #302b63 100%);
-      border-radius: 20px;
-      padding: 56px 40px;
+    .contact-block {
+      background: #0f0f0f;
+      border-radius: 16px;
+      padding: 52px 40px;
       text-align: center;
-      color: white;
+      color: #fff;
     }
 
-    .contact-card h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
+    .contact-block h2 { color: #fff; margin-bottom: 8px; }
 
-    .contact-card p {
-      color: rgba(255,255,255,0.65);
+    .contact-block p {
+      color: #777;
+      font-size: 0.875rem;
       margin-bottom: 28px;
-      font-size: 0.9rem;
     }
 
     .email-btn {
       display: inline-block;
-      background: white;
-      color: #302b63;
+      background: #fff;
+      color: #0f0f0f;
       font-weight: 700;
-      font-size: 0.9rem;
-      padding: 14px 32px;
+      font-size: 0.875rem;
+      padding: 13px 30px;
       border-radius: 50px;
       text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-
-    .email-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
     }
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 24px;
+      border-top: 1px solid #ebebeb;
+      padding: 28px 24px;
       text-align: center;
-      font-size: 0.82rem;
-      color: var(--muted);
+      font-size: 0.8rem;
+      color: #aaa;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .footer-links { display: flex; justify-content: center; gap: 24px; margin-top: 10px; flex-wrap: wrap; }
+    footer a { color: #aaa; text-decoration: none; }
+    footer a:hover { color: #111; }
+    .footer-links { display: flex; gap: 20px; }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <div class="hero-badge">Support</div>
     <h1>Hook It</h1>
-    <p>A mathematical puzzle game based on Young tableaux theory. Sort the numbers, one hook at a time.</p>
+    <p>A 3x3 hook move puzzle. Sort the numbers.</p>
     <div class="grid-demo">
       <div class="cell">1</div><div class="cell">2</div><div class="cell">3</div>
       <div class="cell">4</div><div class="cell">5</div><div class="cell">6</div>
@@ -290,105 +240,77 @@
   <main class="content">
 
     <section class="section">
-      <div class="section-label">Getting Started</div>
-      <h2>How to Play</h2>
+      <div class="label">How to Play</div>
+      <h2>The basics</h2>
       <div class="steps">
         <div class="step">
-          <div class="step-num">1</div>
+          <div class="step-num">01</div>
           <div>
-            <h3>Know the goal</h3>
-            <p>Arrange the numbers 1 through 9 in a 3x3 grid so each row increases left to right and each column increases top to bottom. The solved state is 1–2–3 on top, 4–5–6 in the middle, 7–8–9 on the bottom.</p>
+            <h3>The goal</h3>
+            <p>Arrange 1 through 9 so each row increases left to right and each column increases top to bottom. The solution is always 1-2-3, 4-5-6, 7-8-9.</p>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">2</div>
+          <div class="step-num">02</div>
           <div>
-            <h3>Make a hook move</h3>
-            <p>Tap any cell to activate a hook. The hook spans all cells directly above the tapped cell and all cells to its right, including the tapped cell. Every number shifts forward one step — the last wraps around to the first position in the hook.</p>
+            <h3>Hook moves</h3>
+            <p>Tap any cell. The hook covers all cells above it in the same column, plus all cells to its right in the same row, including itself. Every number shifts forward one step; the last wraps to the front.</p>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">3</div>
+          <div class="step-num">03</div>
           <div>
-            <h3>Use hints wisely</h3>
-            <p>Stuck? The hint button previews the next optimal move. Hints cost extra moves on your final score, so use them only when needed.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <div>
-            <h3>Beat the optimal</h3>
-            <p>When you solve a puzzle, your move count is compared to the known minimum. The closer you are to optimal, the better your score.</p>
+            <h3>Score</h3>
+            <p>Your move count is compared to the known optimal for that puzzle. Hints cost extra moves.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-label">Modes</div>
-      <h2>Game Modes</h2>
+      <div class="label">Modes</div>
+      <h2>Two ways to play</h2>
       <div class="modes">
         <div class="mode-card">
-          <div class="tag tag-standard">Standard</div>
-          <div class="icon">&#x1F7E2;</div>
-          <h3>Standard Mode</h3>
-          <p>Tap any cell freely for as long as you need. Great for learning the puzzle and building intuition for hook moves.</p>
+          <div class="mode-tag tag-std">Standard</div>
+          <h3>Free Play</h3>
+          <p>Tap any cell at any time. No restrictions. Good for learning the mechanics.</p>
         </div>
         <div class="mode-card">
-          <div class="tag tag-constrained">Constrained</div>
-          <div class="icon">&#x1F534;</div>
-          <h3>Constrained Mode</h3>
-          <p>Once you move away from a cell, it locks permanently and turns red. Every tap counts — plan your sequence before you commit.</p>
+          <div class="mode-tag tag-con">Constrained</div>
+          <h3>Locked Cells</h3>
+          <p>Leave a cell and it locks permanently. Every tap is a commitment. Plan ahead.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-label">Frequently Asked Questions</div>
-      <h2>FAQ</h2>
+      <div class="label">FAQ</div>
+      <h2>Common questions</h2>
       <div class="faq">
         <details class="faq-item">
-          <summary>What exactly is a hook move?</summary>
-          <div class="faq-body">When you tap a cell, the hook is formed by all cells in that column above the tapped cell, plus all cells in that row to the right, including the tapped cell itself. Every number in the hook shifts forward by one position, and the last number wraps back to the first cell in the hook.</div>
+          <summary>Why is a cell red?</summary>
+          <div class="faq-body">You are in Constrained Mode. Red cells are locked — you left them and can no longer tap them. The top-right cell is always exempt from locking.</div>
         </details>
         <details class="faq-item">
-          <summary>Why did a cell turn red?</summary>
-          <div class="faq-body">You are in Constrained Mode. When you tap a cell and then move to a different cell, the first cell locks and turns red. Locked cells cannot be tapped again. The top-right cell (position 9) is always exempt from locking.</div>
+          <summary>Can I resume a game?</summary>
+          <div class="faq-body">Yes. Exit using the in-game settings button to save your progress. Open Settings and tap Resume to pick up where you left off. Tapping Back to Home clears the save.</div>
         </details>
         <details class="faq-item">
           <summary>What does the difficulty slider do?</summary>
-          <div class="faq-body">The slider on the main menu selects a difficulty range. Lower difficulty puzzles require fewer moves to reach the solution. The hardest setting pulls from puzzles with the longest known optimal solution lengths.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I resume a game I left mid-way?</summary>
-          <div class="faq-body">Yes. If you exit using the in-game settings button, your progress is saved automatically. Open Settings and tap Resume to continue where you left off. Choosing Back to Home from Settings will clear your saved game.</div>
+          <div class="faq-body">It selects a range of puzzles ordered by optimal solution length. Low difficulty means fewer moves to solve. High difficulty means longer, more complex puzzles.</div>
         </details>
         <details class="faq-item">
           <summary>What is the optimal move count?</summary>
-          <div class="faq-body">Each puzzle has a pre-computed minimum number of moves required to reach the solution. Your final move count is compared to this on the win screen.</div>
-        </details>
-        <details class="faq-item">
-          <summary>How do I mute the game?</summary>
-          <div class="faq-body">Tap the sound button in the Settings menu. Your preference is saved and persists across sessions.</div>
+          <div class="faq-body">Each puzzle has a pre-computed minimum number of moves. Your final count is shown against it on the win screen.</div>
         </details>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-label">About</div>
-      <h2>The Math Behind Hook It</h2>
-      <div class="card">
-        <p>Hook It is based on the mathematics of <strong>standard Young tableaux</strong> — arrangements of numbers in a grid where every row increases left to right and every column increases top to bottom. That target state is exactly what you are solving for.</p>
-        <p>The hook move derives from the <strong>promotion operator</strong> on tableaux, a classical operation in algebraic combinatorics. Every puzzle in the game comes from a verified solvable configuration with a known optimal solution length.</p>
-        <p>Hook It was developed by <strong>Jeffrey Wang</strong> (UCSB CCS Computing), with production managed by <strong>Richert Wang</strong>. The underlying mathematics are due to Professor <strong>Ömer Eğecioğlu</strong> at UC Santa Barbara.</p>
-        <p><a href="https://www.cs.ucsb.edu/~omer/Hookit_puzzle.pdf">Read the research paper &#8594;</a></p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="contact-card">
-        <h2>Need Help?</h2>
-        <p>For bug reports, questions, or feedback, reach out directly. I usually respond within a day or two.</p>
+      <div class="contact-block">
+        <h2>Get in touch</h2>
+        <p>Bug reports, questions, or feedback — reach out directly.</p>
         <a class="email-btn" href="mailto:jwang44@ucsb.edu">jwang44@ucsb.edu</a>
       </div>
     </section>
@@ -396,11 +318,10 @@
   </main>
 
   <footer>
-    <div>&copy; 2025 Jeffrey Wang &mdash; Hook It</div>
+    <span>&copy; 2025 Jeffrey Wang</span>
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="https://www.cs.ucsb.edu/~omer/Hookit_puzzle.pdf">Research Paper</a>
-      <a href="mailto:jwang44@ucsb.edu">Contact</a>
     </div>
   </footer>
 
